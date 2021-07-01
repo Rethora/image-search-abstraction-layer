@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Search</title>
+</head>
+
+<body>
+    <div class='app'>
+        <div class='usage-text'>
+            <p>Usage: Search for image down below or you can add parameters to the url address bar like so:</p>
+            <em>"http://www.example.com/query/cats?page=2"</em>
+            <form id="form" method="GET" onsubmit="handleSubmit()">
+                <input type='text' id='search' required />
+                <input type='submit' value='search' />
+            </form>
+            <div id='results'></div>
+        </div>
+    </div>
+    <script type='text/javascript'>
+        const handleSubmit = () => {
+            const form = document.getElementById('form');
+            let searchString = document.getElementById('search').value
+            const action_src = `/query/${searchString}`;
+            form.action = action_src;
+        }
+    </script>
+</body>
+
+</html>
